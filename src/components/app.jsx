@@ -3,6 +3,7 @@ import GoogleMapReact from 'google-map-react';
 import flats from '../data/flats.js'
 
 import FlatList from './flat_list.jsx'
+import Marker from './marker.jsx'
 
 class App extends Component {
 
@@ -35,7 +36,9 @@ class App extends Component {
           <FlatList flats={this.state.flats} selectFlat={this.selectFlat} />
         </div>
         <div className="map-container">
-          <GoogleMapReact center={this.center()} defaultZoom={17} />
+          <GoogleMapReact center={this.center()} defaultZoom={17} >
+            <Marker lat={this.state.selectedFlat.lat} lng={this.state.selectedFlat.lng} />
+          </GoogleMapReact>/>
         </div>
       </div>
     );
